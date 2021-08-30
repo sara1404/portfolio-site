@@ -6,7 +6,6 @@ body {
     margin: 0;
     padding: 0;
 }
-
 .container{
     display: flex;
     flex-direction: column;
@@ -18,9 +17,10 @@ body {
     background: linear-gradient(-90deg, rgb(220,220,220), rgba(240,240,240,0.2));
     margin: 20px auto;
     display: flex;
+    position: relative;
 }
 .first-slide{
-   position: relative;
+    overflow: hidden;
 }
 #letter{
     position: relative;
@@ -65,6 +65,8 @@ header label {
     height: 1px;
 }
 svg{
+    position:absolute;
+    z-index: 0;
     max-height: 100%;
     min-height: 100%;
     opacity: 0.1;
@@ -91,9 +93,6 @@ h1{
     font-style: italic;
     font-size: 20px;
 }
-p{
-    padding-right: 40px;
-}
 .pic{
     display: flex;
     padding-left: 80px;
@@ -101,37 +100,157 @@ p{
     width: 60%;
     overflow: hidden;
 }
-.second-slide{
-    position: relative;
-}
-.second-slide svg{
-    position: absolute;
-    z-index: 1;
-}
+
 .second-slide picture{
     object-fit: contain;
     z-index: 2;
     margin-top: 40px;
     margin-left: 20px;
 }
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.content-container * {
+    margin: 0px;
+}
 .second-slide h2{
+    width: 80%;
+    min-width: 80%;
+    align-self: center;
     font-size: 40px;
-    padding-left: 150px;
-    padding-top: 70px;
+    text-align: center;
     font-family: 'Inconsolata', monospace;;
+}
+.second-slide h2:before {
+    content: "";
+    position: relative;
+    bottom: 12px;
+    left: 0px;
+    background-color: black;
+    height: 1px;
+    width: 70px;
+    display: inline-block;
+    clear: both;
+
 }
 .second-slide span{
     font-weight: lighter;
 }
 .second-slide p{
-    padding-left: 40px;
-    padding-top: 10px;
+    width: 80%;
+    max-width: 80%;
+    min-width: 80%;
+    align-self: center;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 20px;
-    padding-right: 30px;
     
 }
+
 .social-media-icons{
-    padding-left: 40px;
-    padding-top: 30px;
+    text-align: center;
+}
+.icon:hover{
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: rgb(199, 199, 199);
+    cursor: pointer;
+}
+
+.my-slides{
+    display: none;
+    height: 100%;
+    width: 100%;
+}
+.fade{
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+.prev, .next{
+    cursor: pointer;
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    font-size: 25px;
+    top: 45%;
+    padding: 20px;
+    margin: 0 20px 0 20px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid white;
+    background-color: #fff;
+    user-select: none;
+}
+.next{
+    right: 0;
+}
+.prev:hover, .next:hover{
+    animation: growBox .5s;
+    animation-fill-mode: forwards;
+}
+.third-slide .my-slides{
+    position: absolute;
+    z-index: 1;
+    max-height: 100%;
+    min-height: 100%;
+}
+
+.fourth-slide{
+    flex-direction: row;
+    align-items: center;
+}
+.fourth-slide span{
+    font-weight: lighter;
+}
+.fourth-slide-img{
+    height: 70%;
+    width: 50%;
+    right: 70px;
+    top: 80px;
+}
+.fourth-slide-text{
+    left: 70px;
+    top: 150px;
+    width: auto;
+    height: 70%;
+    font-size: 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+@media only screen and (max-width: 1024px) {
+    .second-slide picture {
+        display: none;
+    }
+}
+@media only screen and (max-width: 900px){
+    .fourth-slide-img{
+        display: none;
+    }
+}
+
+@keyframes growBox {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.33);
+    }
+}
+
+@keyframes fade{
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
