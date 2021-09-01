@@ -19,6 +19,7 @@ body {
     display: flex;
     position: relative;
 }
+/*FIRST SLIDE*/
 .first-slide{
     overflow: hidden;
 }
@@ -40,19 +41,47 @@ header{
     justify-content: flex-end;
 }
 
-header label {
+.burger{
+    width: 5%;
+    vertical-align: middle;
+    position: relative;
+    right: 35px;
+    top: 25px;
+    cursor: pointer;
+}
+
+.dropdown label{
+    position: absolute;
+    right: 80px;
+    top: 10px;
     margin-right: 7px;
     margin-top: 17px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor: pointer;
+    user-select: none;
 }
-
-.burger{
-    width: 5%;
-    margin-top: 5px;
-    padding: 10px;
-    vertical-align: middle;
+.dropdown-content{
+    display: none;
+    background-color: rgb(186, 182, 182);
+    min-width: 50px;
+    border: 2px solid black;
+    border-radius: 5px;
+    position: absolute;
+    top: 60px;
+    right: 12px;
 }
-
+.dropdown-content a{
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 5px;
+    border-top: 1px solid black;
+    user-select: none;
+    text-align: center;
+}
+.dropdown-content a:hover{
+    background-color:rgb(176, 172, 172);
+}
 .line{
     width: 30px;
     border: 2px solid black;
@@ -100,7 +129,7 @@ h1{
     width: 60%;
     overflow: hidden;
 }
-
+/*SECOND-SLIDE*/
 .second-slide picture{
     object-fit: contain;
     z-index: 2;
@@ -125,7 +154,7 @@ h1{
     align-self: center;
     font-size: 40px;
     text-align: center;
-    font-family: 'Inconsolata', monospace;;
+    font-family: 'Inconsolata', monospace;
 }
 .second-slide h2:before {
     content: "";
@@ -211,29 +240,160 @@ h1{
     font-weight: lighter;
 }
 .fourth-slide-img{
-    height: 70%;
-    width: 50%;
-    right: 70px;
-    top: 80px;
+    height: 80%;
+    width: 70%;
+    padding-right: 70px;
 }
 .fourth-slide-text{
-    left: 70px;
-    top: 150px;
-    width: auto;
     height: 70%;
+    width: 30%;
     font-size: 20px;
     font-family: 'Source Sans Pro', sans-serif;
+    padding: 60px;
+    padding-top: 140px; 
+}
+/*FIFTH SLIDE*/
+.slider{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+/* .slide1{
+    position: absolute;
+    z-index: 1;
+    height: 40%;
+    left: 80px;
+}
+.slide2{
+    position: absolute;
+    z-index: 2;
+    height: 60%;
+
+}
+.slide3{
+    position: absolute;
+    z-index: 1;
+    height: 40%;
+    right: 80px;
+}
+.slide4{
+    display: none;
+} */
+
+/*
+SRDJANOVO ZA BRISANJE
+
+*/
+
+.slider img:first-child {
+    position: absolute;
+    z-index: 1;
+    height: 40%;
+    left: 80px;
+    background: red;
 }
 
+.slider img:nth-child(2) {
+    position: absolute;
+    z-index: 2;
+    height: 60%;
+}
+
+.slider img:nth-child(3) {
+    position: absolute;
+    z-index: 1;
+    height: 40%;
+    right: 80px;
+}
+
+.slider img:nth-child(4) {
+    display: none;
+}
+/*SIXTH SLIDE*/
+
+.sixth-slide{
+    flex-direction: column;
+}
+.sixth-slide-content{
+    z-index: 2;
+}
+.sixth-slide-content h1{
+    margin-top: 40px;
+    text-align: center;
+    font-family: 'Inconsolata', monospace;
+}
+.sixth-slide-content span{
+    font-weight: lighter;
+}
+.sixth-slide-content p{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    padding: 0 30px;
+    margin-bottom: 70px;
+}
+.input{
+    margin: auto;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+.email-and-subject{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    width: 100%;
+}
+#email, #subject{
+    width:48%; 
+    padding: 0px;
+    margin: 0px 0px 10px 0px;
+    height: 35px; 
+    background-color: transparent;
+}
+
+#message{
+    width: 100%;
+    height: 100px;
+    background-color: transparent;
+    padding: 0px;
+    resize: none;
+    margin-bottom: 20px;
+}
+#send-message-button{
+    height: 30px;
+    width: 100%;
+    background-color: #111;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
 @media only screen and (max-width: 1024px) {
     .second-slide picture {
         display: none;
     }
-}
-@media only screen and (max-width: 900px){
     .fourth-slide-img{
         display: none;
     }
+    .fourth-slide-text{
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 780px){
+    .email-and-subject{
+        flex-direction: column;
+        justify-content: center;
+    }
+   #email, #subject{
+       width: 100%;
+   } 
+
 }
 
 @keyframes growBox {
@@ -242,7 +402,7 @@ h1{
     }
 
     to {
-        transform: scale(1.33);
+        transform: scale(1.2);
     }
 }
 
