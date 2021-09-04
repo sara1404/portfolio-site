@@ -1,4 +1,5 @@
 let icons = document.querySelectorAll('.icon');
+let menu = document.querySelector('.dropdown-content');
 
 for(let i = 0; i < 4; i++){
     icons[i].onclick = function(){
@@ -95,7 +96,7 @@ function slideRight(){
     // right--;
     // slides[left].className = 'slide1 ';
 }
-let menu = document.querySelector('.dropdown-content');
+
 let burgerClick = 0;
 function showMenu(){
     if(burgerClick % 2 == 0){
